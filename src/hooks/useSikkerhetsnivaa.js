@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import { Innlogging } from "../constants";
 
 const useSikkerhetsnivaa = (brukernotifikasjon, type, innloggingsstatus) => {
