@@ -4,7 +4,7 @@ import Panel from "nav-frontend-paneler";
 import Lenke from "nav-frontend-lenker";
 import { Normaltekst } from "nav-frontend-typografi";
 import { useIsFetching } from "react-query";
-import useStore from "../../hooks/useStore";
+import useIsError from "../../hooks/useIsError";
 import AdvarselBox from "./alerts/AdvarselBox";
 import Tittel from "../../components/common/Tittel";
 import AktiveVarsler from "./varsler/AktiveVarsler";
@@ -17,11 +17,11 @@ import { lenker } from "../../utils/lenker";
 import "./Varslinger.less";
 
 const Varslinger = () => {
-  const { state } = useStore();
+  const isError = useIsError();
   const isFetching = useIsFetching();
 
   return (
-    <PageBase uniqueErrors={state.error} breadcrumbs={Brodsmuler.varslinger}>
+    <PageBase uniqueErrors={isError} breadcrumbs={Brodsmuler.varslinger}>
       <div className="row">
         <div className="maincontent side-innhold">
           <div className="col-md-12" id="dittnav-main-container">
