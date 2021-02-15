@@ -1,0 +1,6 @@
+app: dittnav-varslinger
+namespace: personbruker
+team: personbruker
+base_path: "/person/varslinger"
+ingresses:
+    - https://person.dev.nav.no/person/varslinger

@@ -1,0 +1,77 @@
+@import "node_modules/nav-frontend-core/less/core";
+@import (reference) 'node_modules/nav-frontend-lenker-style/src/lenker-mixins';
+
+@mobile-breakpoint: 576px;
+@tablet-breakpoint: @screen-tablet;
+
+.infomeldinger-list {
+  border-radius: 0.25rem;
+  margin-top: 2.5rem;
+  margin-right: 4.375rem;
+  margin-left: 4.375rem;
+  .blokk-xl();
+
+  .infomelding {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+
+    .lenkepanel__innhold {
+      padding: 0;
+    }
+  }
+}
+
+.varslinger-inngang-wrapper {
+  text-align: center;
+}
+
+.varslinger-inngang {
+  display: inline-block;
+
+  &__chevron {
+    color: @navBla;
+    display: inline-block;
+    margin-left: 0.15em;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    .varslinger-inngang__chevron {
+      transform: translateX(3px) rotate(-90deg);
+    }
+  }
+}
+
+#varslinger-inngang__lenke-id {
+  border-bottom: 0;
+  .lenke-mixin();
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+}
+
+.skjermleser {
+  position: absolute;
+  left: -3000px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  z-index: -1000;
+}
+
+@media screen and (max-width: 700px) {
+  .infomeldinger-list {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: @mobile-breakpoint) {
+  .varslinger-inngang {
+    font-size: 1rem;
+  }
+}
