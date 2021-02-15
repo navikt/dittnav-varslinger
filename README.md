@@ -1,6 +1,6 @@
-# Dittnav-varlsinger
+# Dittnav-varslinger
 
-Kildekoden til frontend-appen for Varslinger.
+Kildekoden til frontend-appen for Dittnav sine varslinger.
 
 # Kom i gang
 
