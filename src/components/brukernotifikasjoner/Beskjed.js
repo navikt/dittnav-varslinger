@@ -15,13 +15,11 @@ const onClickBeskjed = (beskjed, mutation) => {
   trackEvent(GoogleAnalyticsCategory.Forside, GoogleAnalyticsAction.BeskjedLukk, "");
 };
 
-const Beskjed = ({ beskjed, innloggingsstatus, erAktiv, erInaktiv }) => {
+const Beskjed = ({ beskjed, innloggingsstatus, erInaktiv }) => {
   const mutation = useMutateBeskjed();
-
   const sikkerhetsnivaa = useSikkerhetsnivaa(beskjed, "beskjed", innloggingsstatus);
   const lenkeTekst = sikkerhetsnivaa.skalMaskeres ? "beskjed.lenke.stepup.tekst" : "beskjed.lenke.tekst";
   const lokalDatoTid = transformTolokalDatoTid(beskjed.eventTidspunkt);
-
   const visKnapp = !(sikkerhetsnivaa.skalMaskeres || erInaktiv);
 
   return (

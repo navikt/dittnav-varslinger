@@ -24,7 +24,7 @@ const AktiveVarsler = () => {
           </Systemtittel>
         </div>
       )}
-      <Brukernotifikasjoner beskjeder={beskjeder} oppgaver={oppgaver} innbokser={innbokser} erAktiv />
+      <Brukernotifikasjoner beskjeder={beskjeder} oppgaver={oppgaver} innbokser={innbokser} />
     </div>
   );
 };
