@@ -2,7 +2,6 @@ import React from "react";
 import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
 import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
 import { transformTolokalDatoTid } from "../../utils/datoUtils";
-import PanelOverskrift from "../common/PanelOverskrift";
 import IkonOppgave from "../../assets/IkonOppgave";
 import OppgaveType from "../../types/OppgaveType";
 import InnloggingsstatusType from "../../types/InnloggingsstatusType";
@@ -11,14 +10,13 @@ import "../../less/Oppgave.less";
 
 const Oppgave = ({ oppgave, innloggingsstatus }) => {
   const sikkerhetsnivaa = useSikkerhetsnivaa(oppgave, "oppgave", innloggingsstatus);
-  const overskrift = <PanelOverskrift overskrift={sikkerhetsnivaa.tekst} type="Element" />;
   const lokalDatoTid = transformTolokalDatoTid(oppgave.eventTidspunkt);
 
   return (
     <LenkepanelMedIkon
       className="oppgave"
       alt="Oppgave"
-      overskrift={overskrift}
+      overskrift={sikkerhetsnivaa.tekst}
       etikett={lokalDatoTid}
       href={sikkerhetsnivaa.lenke}
       gaCategory="Ditt NAV/Oppgave"
