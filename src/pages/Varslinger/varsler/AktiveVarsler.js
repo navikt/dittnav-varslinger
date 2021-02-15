@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { BESKJED_URL, INNBOKS_URL, OPPGAVE_URL } from "../../../constants";
 import { fetcher } from "../../../api";
 
-const antallVarsler = (varsler) => (varsler && varsler.content ? varsler.content.length : 0);
+const antallVarsler = (varsler) => varsler?.length || 0;
 
 const AktiveVarsler = () => {
   const { data: beskjeder } = useQuery(BESKJED_URL, fetcher);
