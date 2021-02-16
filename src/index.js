@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as Sentry from "@sentry/browser";
 import App from "./App";
-import Providers from "./context/Providers";
+import Providers from "./providers/Providers";
 import "./index.less";
 
 if (process.env.NODE_ENV === "development") {
