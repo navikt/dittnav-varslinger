@@ -2,8 +2,8 @@ import React from "react";
 import Panel from "nav-frontend-paneler";
 import { Systemtittel, Element } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Oppgave from "../../../components/Oppgave";
-import Beskjed from "../../../components/Beskjed";
+import Oppgave from "../../../components/oppgave/Oppgave";
+import Beskjed from "../../../components/beskjed/Beskjed";
 
 const Statuspanel = () => (
   <Panel className="sakspanel tidslinje">

@@ -1,12 +1,12 @@
 import React from "react";
-import useSikkerhetsnivaa from "../hooks/useSikkerhetsnivaa";
-import { transformTolokalDatoTid } from "../utils/datoUtils";
-import LenkepanelMedIkon from "./common/LenkepanelMedIkon";
-import IkonInnboks from "../assets/IkonInnboks";
-import InnloggingsstatusType from "../types/InnloggingsstatusType";
-import InnboksType from "../types/InnboksType";
-import { GoogleAnalyticsAction, removeFragment } from "../utils/googleAnalytics";
-import "../less/Innboks.less";
+import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
+import { transformTolokalDatoTid } from "../../utils/datoUtils";
+import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
+import IkonInnboks from "../../assets/IkonInnboks";
+import InnloggingsstatusType from "../../types/InnloggingsstatusType";
+import InnboksType from "../../types/InnboksType";
+import { GoogleAnalyticsAction, removeFragment } from "../../utils/googleAnalytics";
+import "./Innboks.less";
 
 const Innboks = ({ innboks, innloggingsstatus }) => {
   const sikkerhetsnivaa = useSikkerhetsnivaa(innboks, "innboks", innloggingsstatus);

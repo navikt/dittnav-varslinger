@@ -1,8 +1,8 @@
 import React from "react";
 import { arrayOf, bool } from "prop-types";
-import Beskjed from "./Beskjed";
-import Oppgave from "./Oppgave";
-import Innboks from "./Innboks";
+import Beskjed from "./beskjed/Beskjed";
+import Oppgave from "./oppgave/Oppgave";
+import Innboks from "./innboks/Innboks";
 import { byEventTidspunkt } from "../utils/datoUtils";
 import BeskjedType from "../types/BeskjedType";
 import OppgaveType from "../types/OppgaveType";

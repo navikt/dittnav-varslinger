@@ -1,12 +1,12 @@
 import React from "react";
-import useSikkerhetsnivaa from "../hooks/useSikkerhetsnivaa";
-import LenkepanelMedIkon from "./common/LenkepanelMedIkon";
-import { transformTolokalDatoTid } from "../utils/datoUtils";
-import IkonOppgave from "../assets/IkonOppgave";
-import OppgaveType from "../types/OppgaveType";
-import InnloggingsstatusType from "../types/InnloggingsstatusType";
-import { GoogleAnalyticsAction, removeFragment } from "../utils/googleAnalytics";
-import "../less/Oppgave.less";
+import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
+import LenkepanelMedIkon from "../common/LenkepanelMedIkon";
+import { transformTolokalDatoTid } from "../../utils/datoUtils";
+import IkonOppgave from "../../assets/IkonOppgave";
+import OppgaveType from "../../types/OppgaveType";
+import InnloggingsstatusType from "../../types/InnloggingsstatusType";
+import { GoogleAnalyticsAction, removeFragment } from "../../utils/googleAnalytics";
+import "./Oppgave.less";
 
 const Oppgave = ({ oppgave, innloggingsstatus }) => {
   const sikkerhetsnivaa = useSikkerhetsnivaa(oppgave, "oppgave", innloggingsstatus);

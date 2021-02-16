@@ -1,14 +1,14 @@
 import React from "react";
 import { bool } from "prop-types";
-import useSikkerhetsnivaa from "../hooks/useSikkerhetsnivaa";
-import { transformTolokalDatoTid } from "../utils/datoUtils";
-import PanelMedIkon from "./common/PanelMedIkon";
-import IkonBeskjed from "../assets/IkonBeskjed";
-import InnloggingsstatusType from "../types/InnloggingsstatusType";
-import BeskjedType from "../types/BeskjedType";
-import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../utils/googleAnalytics";
-import useMutateBeskjed from "../hooks/useMutateBeskjed";
-import "../less/Beskjed.less";
+import useSikkerhetsnivaa from "../../hooks/useSikkerhetsnivaa";
+import { transformTolokalDatoTid } from "../../utils/datoUtils";
+import PanelMedIkon from "../common/PanelMedIkon";
+import IkonBeskjed from "../../assets/IkonBeskjed";
+import InnloggingsstatusType from "../../types/InnloggingsstatusType";
+import BeskjedType from "../../types/BeskjedType";
+import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../../utils/googleAnalytics";
+import useMutateBeskjed from "../../hooks/useMutateBeskjed";
+import "./Beskjed.less";
 
 const onClickBeskjed = (beskjed, mutation) => {
   mutation.mutate(beskjed);

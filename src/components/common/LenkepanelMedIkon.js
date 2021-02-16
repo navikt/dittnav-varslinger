@@ -3,7 +3,7 @@ import { shape, any, node, func, string } from "prop-types";
 import { LenkepanelBase } from "nav-frontend-lenkepanel";
 import { Element, Undertekst } from "nav-frontend-typografi";
 import { trackEvent } from "../../utils/googleAnalytics";
-import "../../less/LenkePanelMedIkon.less";
+import "./LenkePanelMedIkon.less";
 
 class LenkepanelMedIkon extends React.Component {
   render() {
