@@ -31,13 +31,12 @@ export const fetcher = async ({ queryKey }) => {
   return response.json();
 };
 
-const postJSON = (url, content) =>
-  new Promise((resolve, reject) => {
-    fetch(url, postOptions(content))
-      .then((response) => response.headers)
-      .then((headers) => resolve(headers))
-      .catch((e) => reject(e));
-  });
+const postJSON = async (url, content) => {
+  const response = await fetch(url, postOptions(content));
+  checkResponse(response);
+
+  return response;
+};
 
 export const postHendelse = (path, content) => {
   return postJSON(`${TestProducer.URL}/${path}`, content);
