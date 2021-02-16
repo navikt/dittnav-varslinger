@@ -1,20 +1,15 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
-import Panel from "nav-frontend-paneler";
-import Lenke from "nav-frontend-lenker";
-import { Normaltekst } from "nav-frontend-typografi";
 import { useIsFetching } from "react-query";
 import useIsError from "../../hooks/useIsError";
 import AdvarselBox from "./alerts/AdvarselBox";
 import Tittel from "../../components/common/Tittel";
 import AktiveVarsler from "./varsler/AktiveVarsler";
 import InaktiveVarsler from "./varsler/InaktiveVarsler";
-import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../../utils/googleAnalytics";
 import PageBase from "../PageBase";
 import DelayedSpinner from "../../components/common/DelayedSpinner";
 import Brodsmuler from "../../utils/brodsmuler";
-import { lenker } from "../../utils/lenker";
 import "./Varslinger.less";
+import InformasjonBox from "./alerts/InformasjonBox";
 
 const Varslinger = () => {
   const isError = useIsError();
@@ -31,29 +26,7 @@ const Varslinger = () => {
               <AdvarselBox />
               <AktiveVarsler />
               <InaktiveVarsler />
-              <Panel className="mininnboks-panel">
-                <Normaltekst>
-                  <FormattedMessage
-                    id="varslinger.mininnboks.melding"
-                    values={{
-                      innboksen: (
-                        <Lenke
-                          href={lenker.innboks.url}
-                          onClick={() =>
-                            trackEvent(
-                              GoogleAnalyticsCategory.Varslinger,
-                              GoogleAnalyticsAction.Innboks,
-                              lenker.innboks.url
-                            )
-                          }
-                        >
-                          innboksen
-                        </Lenke>
-                      ),
-                    }}
-                  />
-                </Normaltekst>
-              </Panel>
+              <InformasjonBox />
             </section>
           </div>
         </div>
