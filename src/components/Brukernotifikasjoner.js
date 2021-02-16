@@ -1,8 +1,8 @@
 import React from "react";
 import { arrayOf, bool } from "prop-types";
-import Beskjed from "./brukernotifikasjoner/Beskjed";
-import Oppgave from "./brukernotifikasjoner/Oppgave";
-import Innboks from "./brukernotifikasjoner/Innboks";
+import Beskjed from "./Beskjed";
+import Oppgave from "./Oppgave";
+import Innboks from "./Innboks";
 import { byEventTidspunkt } from "../utils/datoUtils";
 import BeskjedType from "../types/BeskjedType";
 import OppgaveType from "../types/OppgaveType";
