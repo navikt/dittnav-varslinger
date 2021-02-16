@@ -3,7 +3,7 @@ import AlertStripe from "nav-frontend-alertstriper";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Lenke from "nav-frontend-lenker";
-import { lenker } from "../../../utils/lenker";
+import { minInnboksUrl, saksoversiktUrl } from "../../../utils/lenker";
 import { GoogleAnalyticsAction, GoogleAnalyticsCategory, trackEvent } from "../../../utils/googleAnalytics";
 
 const AdvarselBox = () => (
@@ -18,9 +18,9 @@ const AdvarselBox = () => (
           values={{
             innboks: (
               <Lenke
-                href={lenker.innboks.url}
+                href={minInnboksUrl}
                 onClick={() =>
-                  trackEvent(GoogleAnalyticsCategory.Varslinger, GoogleAnalyticsAction.Innboks, lenker.innboks.url)
+                  trackEvent(GoogleAnalyticsCategory.Varslinger, GoogleAnalyticsAction.Innboks, minInnboksUrl)
                 }
               >
                 innboksen
@@ -28,13 +28,9 @@ const AdvarselBox = () => (
             ),
             saksoversikt: (
               <Lenke
-                href={lenker.saksoversikt.url}
+                href={saksoversiktUrl}
                 onClick={() =>
-                  trackEvent(
-                    GoogleAnalyticsCategory.Varslinger,
-                    GoogleAnalyticsAction.DineSaker,
-                    lenker.saksoversikt.url
-                  )
+                  trackEvent(GoogleAnalyticsCategory.Varslinger, GoogleAnalyticsAction.DineSaker, saksoversiktUrl)
                 }
               >
                 Dine saker

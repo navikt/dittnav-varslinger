@@ -9,7 +9,7 @@ import Tidslinjepanel from "./panel/Tidslinjepanel";
 import Brodsmuler from "../../utils/brodsmuler";
 import { forventninger } from "../../utils/tidslinje";
 import { TidslinjeApi } from "../../constants";
-import { buildTidslinjeUrl } from "../../utils/api";
+import { buildTidslinjeUrl } from "../../utils/url";
 
 const queryConfig = {
   retry: 0,

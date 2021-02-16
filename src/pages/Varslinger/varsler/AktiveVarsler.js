@@ -3,15 +3,15 @@ import { FormattedMessage } from "react-intl";
 import { Systemtittel } from "nav-frontend-typografi";
 import Brukernotifikasjoner from "../../../components/Brukernotifikasjoner";
 import { useQuery } from "react-query";
-import { BESKJED_URL, INNBOKS_URL, OPPGAVE_URL } from "../../../constants";
 import { fetcher } from "../../../api";
+import { beskjedUrl, innboksUrl, oppgaveUrl } from "../../../utils/lenker";
 
 const antallVarsler = (varsler) => varsler?.length || 0;
 
 const AktiveVarsler = () => {
-  const { data: beskjeder } = useQuery(BESKJED_URL, fetcher);
-  const { data: oppgaver } = useQuery(OPPGAVE_URL, fetcher);
-  const { data: innbokser } = useQuery(INNBOKS_URL, fetcher);
+  const { data: beskjeder } = useQuery(beskjedUrl, fetcher);
+  const { data: oppgaver } = useQuery(oppgaveUrl, fetcher);
+  const { data: innbokser } = useQuery(innboksUrl, fetcher);
 
   const antallAktiveVarsler = antallVarsler(beskjeder) + antallVarsler(oppgaver) + antallVarsler(innbokser);
 

@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "react-query";
 import { postDone } from "../api";
-import { BESKJED_INAKTIV_URL, BESKJED_URL } from "../constants";
+import { beskjedUrl, inaktivBeskjedUrl } from "../utils/lenker";
 
 const useMutateBeskjed = () => {
   const queryClient = useQueryClient();
@@ -14,10 +14,10 @@ const useMutateBeskjed = () => {
     },
     {
       onSuccess: (data, variables) => {
-        queryClient.setQueryData(BESKJED_URL, (beskjeder) => {
+        queryClient.setQueryData(beskjedUrl, (beskjeder) => {
           return beskjeder.filter((beskjed) => variables.uid !== beskjed.uid);
         });
-        queryClient.setQueryData(BESKJED_INAKTIV_URL, (inaktiveBeskjeder) => {
+        queryClient.setQueryData(inaktivBeskjedUrl, (inaktiveBeskjeder) => {
           return [...inaktiveBeskjeder, variables];
         });
       },

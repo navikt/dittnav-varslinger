@@ -20,105 +20,56 @@ const INNLOGGINGSSTATUS_URL = {
   production: "https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/summary",
 };
 
+const BESKJED_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api/beskjed",
+  production: "https://www.dev.nav.no/person/dittnav-api/beskjed",
+};
+
+const OPPGAVE_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api/oppgave",
+  production: "https://www.dev.nav.no/person/dittnav-api/oppgave",
+};
+
+const INNBOKS_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api/innboks",
+  production: "https://www.dev.nav.no/person/dittnav-api/innboks",
+};
+
+const INAKTIV_BESKJED_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api/beskjed/inaktiv",
+  production: "https://www.dev.nav.no/person/dittnav-api/beskjed/inaktiv",
+};
+
+const INAKTIV_OPPGAVE_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api/oppgave/inaktiv",
+  production: "https://www.dev.nav.no/person/dittnav-api/oppgave/inaktiv",
+};
+
+const INAKTIV_INNBOKS_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api/innboks/inaktiv",
+  production: "https://www.dev.nav.no/person/dittnav-api/innboks/inaktiv",
+};
+
+const VARSLINGER_URL = {
+  development: "https://www.api.nav.no/person/dittnav/varslinger",
+  production: "https://www.dev.nav.no/person/dittnav/varslinger",
+};
+
+const DONE_URL = {
+  development: "https://www.api.nav.no/person/dittnav-api/produce/done",
+  production: "https://www.dev.nav.no/person/dittnav-api/produce/done",
+};
+
 export const dittnavApiUrl = DITTNAV_API_URL[getEnvironment()];
 export const navNoUrl = NAVNO_URL[getEnvironment()];
-export const innloggingsstatusUrl = INNLOGGINGSSTATUS_URL[getEnvironment()];
-
-export const lenker = {
-  ledigeStillinger: {
-    tittel: "Ledige stillinger",
-    url: "https://arbeidsplassen.nav.no/stillinger",
-  },
-  uforetrygd: {
-    tittel: "Uføretrygd",
-    url: "${window.env.TJENESTER_URL}/pselv/publisering/uforetrygd.jsf?context=ut",
-  },
-  dineForeldrepenger: {
-    tittel: "Dine foreldrepenger",
-    url: "https://foreldrepenger.nav.no",
-  },
-  aktivitetsplan: {
-    tittel: "Aktivitetsplan",
-    url: "${window.env.AKTIVITETSPLAN_URL}",
-  },
-  meldekort: {
-    tittel: "Meldekort",
-    url: "${window.env.NAVNO_URL}/meldekort/om-meldekort",
-  },
-  personopplysninger: {
-    tittel: "Personopplysninger",
-    url: "${window.env.NAVNO_URL}/person/personopplysninger",
-  },
-  skjemaer: {
-    tittel: "Skjemaer",
-    url: "${window.env.NAVNO_URL}/soknader",
-  },
-  dinPensjon: {
-    tittel: "Din pensjon",
-    url: "${window.env.TJENESTER_URL}/pselv/publisering/dinpensjon.jsf",
-  },
-  dineStillingssok: {
-    tittel: "Dine stillingssøk",
-    url: "https://stillingsok.nav.no/pam-stillingsok/lagrede-sok",
-  },
-  veilederArbeidssoker: {
-    tittel: "Veileder for arbeidssøker",
-    url: "${window.env.VEILEDERARBEIDSSOKER_URL}",
-  },
-  registrerDegSomArbeidssoker: {
-    tittel: "Registrer deg som arbeidssøker",
-    url: "${window.env.ARBEIDSSOKERREGISTRERING_URL}",
-  },
-  dittSykefravaer: {
-    tittel: "Ditt sykefravær",
-    url: "${window.env.TJENESTER_URL}/sykefravaer",
-  },
-  utbetalingsoversikt: {
-    tittel: "Dine utbetalinger",
-    url: "${window.env.TJENESTER_URL}/utbetalingsoversikt",
-  },
-  saksoversikt: {
-    tittel: "Dine saker",
-    url: "${window.env.TJENESTER_URL}/saksoversikt",
-  },
-  saksoversiktTema: {
-    tittel: "Dine saker",
-    url: "${window.env.TJENESTER_URL}/saksoversikt/tema",
-  },
-  saksoversiktHjelp: {
-    tittel: "Dine saker hjelp",
-    url: "#",
-  },
-  innboks: {
-    tittel: "Innboks",
-    url: "${window.env.TJENESTER_URL}/mininnboks",
-  },
-  digisos: {
-    tittel: "Digisos",
-    url: "${window.env.NAVNO_URL}/sosialhjelp/innsyn",
-  },
-  koronaVeiviser: {
-    tittel: "Koronavirus – hva gjelder i min situasjon?",
-    url: "${window.env.NAVNO_URL}/person/koronaveiviser",
-  },
-  dagpengerForskudd: {
-    tittel: "Trenger du forskudd på dagpenger?",
-    url: "${window.env.NAVNO_URL}/dagpenger/forskudd",
-  },
-  koronaBehandlingstid: {
-    tittel: "Lengre saksbehandlingstider",
-    url: "${window.env.NAVNO_URL}/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav",
-  },
-  koronaSituasjon: {
-    tittel: "Tilbakebetaling av forskudd på dagpenger er i gang",
-    url: "${window.env.NAVNO_URL}/dagpenger/forskudd/oversikt",
-  },
-  dineFullmakter: {
-    tittel: "Dine fullmakter",
-    url: "${window.env.NAVNO_URL}/person/pdl-fullmakt-ui",
-  },
-  sykdomIFamilien: {
-    tittel: "Din oversikt - Sykdom i familien",
-    url: "${window.env.SYKDOM_I_FAMILIEN_URL}",
-  },
-};
+export const innloggingstatusUrl = INNLOGGINGSSTATUS_URL[getEnvironment()];
+export const beskjedUrl = BESKJED_URL[getEnvironment()];
+export const oppgaveUrl = OPPGAVE_URL[getEnvironment()];
+export const innboksUrl = INNBOKS_URL[getEnvironment()];
+export const inaktivBeskjedUrl = INAKTIV_BESKJED_URL[getEnvironment()];
+export const inaktivOppgaveUrl = INAKTIV_OPPGAVE_URL[getEnvironment()];
+export const innaktivInnboksUrl = INAKTIV_INNBOKS_URL[getEnvironment()];
+export const varslingerUrl = VARSLINGER_URL[getEnvironment()];
+export const doneUrl = DONE_URL[getEnvironment()];
+export const minInnboksUrl = "";
+export const saksoversiktUrl = "";

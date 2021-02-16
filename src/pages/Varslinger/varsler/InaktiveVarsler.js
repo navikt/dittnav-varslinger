@@ -3,13 +3,13 @@ import { FormattedMessage } from "react-intl";
 import { Systemtittel } from "nav-frontend-typografi";
 import Brukernotifikasjoner from "../../../components/Brukernotifikasjoner";
 import { useQuery } from "react-query";
-import { BESKJED_INAKTIV_URL, INNBOKS_INAKTIV_URL, OPPGAVE_INAKTIV_URL } from "../../../constants";
 import { fetcher } from "../../../api";
+import { inaktivBeskjedUrl, inaktivOppgaveUrl, innaktivInnboksUrl } from "../../../utils/lenker";
 
 const InaktiveVarsler = () => {
-  const { data: inaktiveBeskjeder } = useQuery(BESKJED_INAKTIV_URL, fetcher);
-  const { data: inaktiveOppgaver } = useQuery(OPPGAVE_INAKTIV_URL, fetcher);
-  const { data: inaktiveInnbokser } = useQuery(INNBOKS_INAKTIV_URL, fetcher);
+  const { data: inaktiveBeskjeder } = useQuery(inaktivBeskjedUrl, fetcher);
+  const { data: inaktiveOppgaver } = useQuery(inaktivOppgaveUrl, fetcher);
+  const { data: inaktiveInnbokser } = useQuery(innaktivInnboksUrl, fetcher);
 
   if (!inaktiveBeskjeder || !inaktiveOppgaver || !inaktiveInnbokser) {
     return null;

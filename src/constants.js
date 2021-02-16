@@ -1,23 +1,5 @@
-import { buildApiUrl, buildNavNoUrl, buildTestProducerUrl, buildLoginserviceUrl } from "./utils/api";
+import { buildApiUrl, buildNavNoUrl, buildTestProducerUrl, buildLoginserviceUrl } from "./utils/url";
 import { innloggingsstatusUrl } from "./utils/lenker";
-
-export const BESKJED_URL = buildApiUrl("/beskjed");
-
-export const OPPGAVE_URL = buildApiUrl("/oppgave");
-
-export const INNBOKS_URL = buildApiUrl("/innboks");
-
-export const BESKJED_INAKTIV_URL = buildApiUrl("/beskjed/inaktiv");
-
-export const OPPGAVE_INAKTIV_URL = buildApiUrl("/oppgave/inaktiv");
-
-export const INNBOKS_INAKTIV_URL = buildApiUrl("/innboks/inaktiv");
-
-export const VARSLINGER_URL = buildNavNoUrl("/person/dittnav/varslinger");
-
-export const DONE_URL = buildApiUrl("/produce/done");
-
-export const INNLOGGINGSSTATUS_URL = innloggingsstatusUrl;
 
 export const TEST_SIDE = null;
 

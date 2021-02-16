@@ -1,4 +1,5 @@
-import { DONE_URL, TestProducer } from "./constants";
+import { TestProducer } from "./constants";
+import { doneUrl } from "./utils/lenker";
 
 export const tokenExpiresSoon = (headers) => headers.get("x-token-expires-soon");
 
@@ -47,7 +48,7 @@ export const postDoneAll = () => {
 };
 
 export const postDone = (content) => {
-  return postJSON(`${DONE_URL}`, content);
+  return postJSON(`${doneUrl}`, content);
 };
 
 export const postStatusoppdatering = (content) => {
