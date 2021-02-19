@@ -1,14 +1,54 @@
 const express = require("express");
-const basePath = process.env.BASE_PATH || "/person/dittnav/varslinger";
-const port = process.env.PORT || 7800;
+const promBundle = require("express-prom-bundle");
+const path = require("path");
+const logger = require("./logger");
+const mustacheExpress = require("mustache-express");
+const getDecorator = require("./dekorator");
+const buildPath = path.resolve(__dirname, "../dist");
+const basePath = "/dittnav/varslinger";
+const server = express();
 
-const app = express();
-app.use("/static", express.static("./build/static"));
-app.use("/assets", express.static("./build/"));
-
-app.get(`${basePath}/isAlive|isReady`, (req, res) => {
-  res.sendStatus(200);
+const prometheus = promBundle({
+  includePath: true,
+  metricsPath: `${basePath}/internal/metrics`,
 });
 
-console.log(`Starting on port ${port} with basePath ${basePath}`);
-app.listen(port);
+server.set("views", `${__dirname}/../dist`);
+server.set("view engine", "mustache");
+server.engine("html", mustacheExpress());
+
+server.use(prometheus);
+server.use(express.json());
+server.use((req, res, next) => {
+  res.removeHeader("X-Powered-By");
+  next();
+});
+
+server.get(`${basePath}/internal/isAlive`, (req, res) => res.sendStatus(200));
+
+server.get(`${basePath}/internal/isReady`, (req, res) => res.sendStatus(200));
+
+server.use(
+  basePath,
+  express.static(buildPath, {
+    index: false,
+  })
+);
+
+// Match everything except internal og static
+server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
+  getDecorator()
+    .then((fragments) => {
+      res.render("index.html", fragments);
+    })
+    .catch((e) => {
+      const error = `Failed to get decorator: ${e}`;
+      logger.error(error);
+      res.status(500).send(error);
+    })
+);
+
+const port = process.env.PORT || 8080;
+server.listen(port, () => logger.info(`App listening on port: ${port}`));
+
+process.on("SIGTERM", () => setTimeout(() => logger.info("Har sovet i 30 sekunder"), 30000));
