@@ -1,5 +1,4 @@
-import { buildApiUrl, buildNavNoUrl, buildTestProducerUrl, buildLoginserviceUrl } from "./utils/url";
-import { innloggingsstatusUrl } from "./utils/lenker";
+import { buildTestProducerUrl, buildLoginserviceUrl } from "./utils/url";
 
 export const TEST_SIDE = null;
 
